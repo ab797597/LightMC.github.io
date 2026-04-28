@@ -1,2 +1,99 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>This is LightMC,My blog</title><link>https://ab797597.github.io/LightMC.github.io</link><description>WELCOME!</description><copyright>This is LightMC,My blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/130751023?v=4&amp;size=64</url><title>avatar</title><link>https://ab797597.github.io/LightMC.github.io</link></image><lastBuildDate>Mon, 27 Apr 2026 17:13:26 +0000</lastBuildDate><managingEditor>This is LightMC,My blog</managingEditor><ttl>60</ttl><webMaster>This is LightMC,My blog</webMaster></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>This is LightMC,My blog</title><link>https://ab797597.github.io/LightMC.github.io</link><description>WELCOME!</description><copyright>This is LightMC,My blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/130751023?v=4&amp;size=64</url><title>avatar</title><link>https://ab797597.github.io/LightMC.github.io</link></image><lastBuildDate>Tue, 28 Apr 2026 17:26:54 +0000</lastBuildDate><managingEditor>This is LightMC,My blog</managingEditor><ttl>60</ttl><webMaster>This is LightMC,My blog</webMaster><item><title>高精度计算(Arbitrary-Precision Arithmetic) C++</title><link>https://ab797597.github.io/LightMC.github.io/post/gao-jing-du-ji-suan-%28Arbitrary-Precision%20Arithmetic%29%20C%2B%2B.html</link><description># 本页面含有高精加，乘法
+## 高精加
+
+```
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+string a,b,c;
+int main(){
+    ios::sync_with_stdio(0);
+    cin.tie();
+    cout.tie();
+    cin&gt;&gt;a&gt;&gt;b;
+    while(a.length()&lt;b.length()) a='0'+a;
+    while(b.length()&lt;a.length()) b='0'+b;
+    int len=a.length();
+    int jw=0;
+    for(int i=len-1;i&gt;=0;i--){
+        int t1,t2,t;
+        t1=a[i]-48;t2=b[i]-48;
+        t=t1+t2+jw;
+        jw=t/10;
+        t%=10;
+        c=char(t+48)+c;
+    }
+    if(jw)
+        c='1'+c;
+    cout&lt;&lt;c;
+    return 0;
+}
+```
+
+### 本质原理就是字符串竖式加法
+怎么个说法呢？
+ ```
+while(a.length()&lt;b.length()) a='0'+a;
+ while(b.length()&lt;a.length()) b='0'+b;
+```
+这段是在两个数字中较短的那个前补足0
+如
+ `12345 1234 -&gt; 12345 01234`
+`int jw=0;`
+'jw' 进位，顾名思义，判断数组的下一位是否需要进位
+ ```
+int t1,t2,t;
+ t1=a[i]-48;t2=b[i]-48;
+ t=t1+t2+jw;
+ jw=t/10;
+ t%=10;
+ c=char(t+48)+c;
+```
+### 一行一行来
+t1 数字a某一位的“数字”形式
+t2 数字b某一位的“数字”形式
+t t1+t2+jw 顾名思义，不做赘述
+然后jw赋值成下一位的进位，t只取余数，填入结果数组c中
+
+## 好了，更复杂的高精乘来了
+
+```
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+string a1,b1;
+int a[2005],b[2005],len,c[10005];
+int main(){
+    cin&gt;&gt;a1&gt;&gt;b1;
+    int lena=a1.length();
+    int lenb=b1.length();
+    for(int i=1;i&lt;=lena;i++) a[i]=a1[lena-i]-'0';
+    for(int i=1;i&lt;=lenb;i++) b[i]=b1[lenb-i]-'0';
+    for(int i=1;i&lt;=lena;i++)
+        for(int j=1;j&lt;=lenb;j++)
+            c[i+j-1]+=a[i]*b[j];
+    for(int i=1;i&lt;=lena+lenb;i++)
+        if(c[i]&gt;=10){
+            c[i+1]+=c[i]/10;
+            c[i]%=10;
+        }
+    len=lena+lenb;
+    while((c[len]==0)&amp;&amp;len&gt;1) len--;
+    for(int i=len;i&gt;=1;i--) cout&lt;&lt;c[i];
+    return 0;
+}
+```
+### 按位乘法+高精加
+### 啥，你问我具体原理？
+### 我  不  想  写
+
+
+# 更详细的原理可以来看这个 来自OIwiki 更完美，更详细，更易懂，还带图
+# &lt;https://oi-wiki.org/math/bignum/#%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%AB%98%E7%B2%BE%E5%BA%A6&gt;。</description><guid isPermaLink="true">https://ab797597.github.io/LightMC.github.io/post/gao-jing-du-ji-suan-%28Arbitrary-Precision%20Arithmetic%29%20C%2B%2B.html</guid><pubDate>Thu, 19 Mar 2026 10:55:14 +0000</pubDate></item><item><title>力的正交分解</title><link>https://ab797597.github.io/LightMC.github.io/post/li-de-zheng-jiao-fen-jie.html</link><description>#请输入文本。</description><guid isPermaLink="true">https://ab797597.github.io/LightMC.github.io/post/li-de-zheng-jiao-fen-jie.html</guid><pubDate>Wed, 18 Mar 2026 13:43:47 +0000</pubDate></item><item><title>这里是LightMC!</title><link>https://ab797597.github.io/LightMC.github.io/post/zhe-li-shi-LightMC%21.html</link><description># Hi,这里是LightMC
+## 欢迎来到我的博客
+悲催的是，由于github托管限制，目前不能上传图片（1GB托管限制）
+但是有一个好消息，这个网站是托管于github上的，基本不会出现所谓
+***404 Page Not Found***
+的情况
+该博客是技术博客，也就是说有大量各位看不懂的东西，也请见谅
+总之，谢谢访问啦~~~
+。</description><guid isPermaLink="true">https://ab797597.github.io/LightMC.github.io/post/zhe-li-shi-LightMC%21.html</guid><pubDate>Wed, 18 Mar 2026 12:49:25 +0000</pubDate></item></channel></rss>
