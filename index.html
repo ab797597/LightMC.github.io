@@ -139,6 +139,80 @@
     
     
     <article
+  id="[post]-P4447-AHOI2018初中组-分组题解"
+  class="article article-type-[post]"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2026/08/09/P4447-AHOI2018%E5%88%9D%E4%B8%AD%E7%BB%84-%E5%88%86%E7%BB%84%E9%A2%98%E8%A7%A3/"
+    >P4447 [AHOI2018初中组] 分组题解</a> 
+</h2>
+ 
+
+      
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2026/08/09/P4447-AHOI2018%E5%88%9D%E4%B8%AD%E7%BB%84-%E5%88%86%E7%BB%84%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2026-08-08T22:36:05.000Z" itemprop="datePublished">2026-08-09</time>
+</a>
+      
+      
+        
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+
+      
+        <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/291620246">AC评测记录</a><br>源码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span> &gt;m;</span><br><span class="line"><span class="keyword">typedef</span> map&lt;<span class="type">int</span>,<span class="type">int</span>&gt;::iterator it;</span><br><span class="line"><span class="type">int</span> ans=<span class="number">0x3f3f3f3f</span>,n;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">int</span> t;</span><br><span class="line">        cin&gt;&gt;t;</span><br><span class="line">        m[t]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!m.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="type">int</span> t=<span class="number">1</span>;</span><br><span class="line">        it i=m.<span class="built_in">begin</span>(),j=m.<span class="built_in">begin</span>();</span><br><span class="line">        (*i).second--;</span><br><span class="line">        <span class="keyword">for</span>(++j;j!=m.<span class="built_in">end</span>()&amp;&amp;(*j).first==(*i).first<span class="number">+1</span>&amp;&amp;(*j).second&gt;(*i).second;i++,j++)&#123;</span><br><span class="line">            t++;</span><br><span class="line">            (*j).second--;</span><br><span class="line">        &#125;</span><br><span class="line">        i=m.<span class="built_in">begin</span>();</span><br><span class="line">        <span class="keyword">while</span>(i!=m.<span class="built_in">end</span>()&amp;&amp;(*i).second==<span class="number">0</span>)&#123;</span><br><span class="line">            m.<span class="built_in">erase</span>((*i++).first);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t&lt;ans)&#123;</span><br><span class="line">            ans=t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这道题我们使用了一种形式化的解法，利用map结构自动排序的便利从左到右以画线的方式进行删除，最终求出最大的最小值（不证自明，这里不给出证明）<br>具体来讲：<br><code>(*i).second--;</code>本行默认最左端的值一定会取（这无疑是显然的），故将其键值自减<br><code>for(++j;j!=m.end()&amp;&amp;(*j).first==(*i).first+1&amp;&amp;(*j).second&gt;(*i).second;i++,j++){</code>贪心算法的核心，j先自增以保证能力值不与i相同，最后先后判断：能力值指针未溢出，能力值严格连续，能力值j严格大于能力值i</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(i!=m.<span class="built_in">end</span>()&amp;&amp;(*i).second==<span class="number">0</span>)&#123;</span><br><span class="line">    m.<span class="built_in">erase</span>((*i++).first);</span><br></pre></td></tr></table></figure>
+<p>清除人数为0的能力值，防止再占用（更是为了防止极端情况下的负数人数）</p>
+
+      
+
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
+  
+</article>
+
+    
+    <article
   id="[post]-STL-map"
   class="article article-type-[post]"
   itemscope

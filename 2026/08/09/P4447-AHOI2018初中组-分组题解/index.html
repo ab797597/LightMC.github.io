@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>STL_map |  LightMC LightMinecraft</title>
+      <title>P4447 [AHOI2018初中组] 分组题解 |  LightMC LightMinecraft</title>
   <meta name="generator" content="hexo-theme-ayeria">
       
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -60,7 +60,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="[post]-STL-map"
+  id="[post]-P4447-AHOI2018初中组-分组题解"
   class="article article-type-[post]"
   itemscope
   itemprop="blogPost"
@@ -71,7 +71,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  STL_map
+  P4447 [AHOI2018初中组] 分组题解
 </h1>
  
 
@@ -81,8 +81,8 @@
 
     
     <div class="article-meta">
-      <a href="/2026/08/08/STL-map/" class="article-date">
-  <time datetime="2026-08-08T14:12:10.000Z" itemprop="datePublished">2026-08-08</time>
+      <a href="/2026/08/09/P4447-AHOI2018%E5%88%9D%E4%B8%AD%E7%BB%84-%E5%88%86%E7%BB%84%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2026-08-08T22:36:05.000Z" itemprop="datePublished">2026-08-09</time>
 </a>
       
       
@@ -92,7 +92,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">963</span>
+            <span class="post-count">354</span>
         </span>
     </span>
 
@@ -101,7 +101,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">1 min</span>
         </span>
     </span>
 </div>
@@ -112,8 +112,6 @@
 
     
       
-    <div class="tocbot"></div>
-
 
 
 
@@ -127,52 +125,11 @@
 
 
       
-        <h1 id="C-STL容器：map-set"><a href="#C-STL容器：map-set" class="headerlink" title="C++STL容器：map&amp;set"></a>C++STL容器：map&amp;set</h1><h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><code>map&lt;Typename1, Typename2&gt; Yourtype;</code><br>值得注意的一点是，map重载了operator[]，可以跟数组一样当下标用。<br>一个使用map的实例：<br><code>map&lt;int, int&gt; ty;</code><br>值得注意的是，当创建字符串对整数的映射是，只能用string，而不能用int<br>map中不存在相同元素</p>
-<h3 id="插入与删除"><a href="#插入与删除" class="headerlink" title="插入与删除"></a>插入与删除</h3><p>可直接通过下标访问，如<code>mp[&quot;aaa&quot;]=100;</code><br>向map中插入一个pair即可插入元素，如<code>mp.insert[pair&lt;string,int&gt;(&quot;aaa&quot;,100)];</code></p>
-<ul>
-<li><code>mp.erase(key)</code>将会删除所有键值为key的元素，返回值为删除元素的数量</li>
-<li><code>mp.erase(pos)</code>删除迭代器为pos的元素，迭代器必须有意义且不可为空</li>
-<li><code>mp.erase(first,last)</code>删除迭代器在[first,last)内的所有元素</li>
-<li><code>mp.clear()</code>清空整个容器<br>在用下标访问的过程中，尤其需要注意的是，如果map中不存在下标，将会直接创建一个下标，对应默认键值，当空下标过多时，将会极大地影响map的效率，所以一般使用<code>mp.find()</code>查找元素</li>
-</ul>
-<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ul>
-<li><code>mp.count(x)</code>返回键为x的元素个数，对数复杂度</li>
-<li><code>mp.find(x)</code>返回x的迭代器，否则返回end()</li>
-<li><code>mp.lower_bound(x)</code>返回首个大于等于给定键的元素的迭代器</li>
-<li><code>mp.upper_bound(x)</code>返回首个大于给定键的元素的迭代器，若不存在这样的迭代器，返回end()</li>
-<li><code>mp.empty()</code>返回容器是否为空</li>
-<li><code>mp.size()</code>返回容器中元素个数</li>
-</ul>
-<h3 id="map用于存储复杂状态"><a href="#map用于存储复杂状态" class="headerlink" title="map用于存储复杂状态"></a>map用于存储复杂状态</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//存储状态与对应答案    </span></span><br><span class="line">map&lt;string,<span class="type">int</span>&gt; record;</span><br><span class="line"><span class="comment">//新搜索到的状态与对应答案</span></span><br><span class="line">string status;</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"><span class="comment">//查找对应状态是否出现过</span></span><br><span class="line">map&lt;string,<span class="type">int</span>&gt;::iterator it=record.<span class="built_in">find</span>(status);</span><br><span class="line"><span class="keyword">if</span>(it==record.<span class="built_in">end</span>())&#123;</span><br><span class="line">    <span class="comment">//尚未搜索过，将其加入状态记录中</span></span><br><span class="line">    record[status]=ans;</span><br><span class="line">    <span class="comment">//相应操作...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//已经搜索过，进行操作...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>值得注意的是，与map不同，set中不会出现指相同的元素（这里可没有键）</p>
-<h3 id="插入与删除-1"><a href="#插入与删除-1" class="headerlink" title="插入与删除"></a>插入与删除</h3><ul>
-<li><code>insert(x)</code> 将元素x插入到set中，返回值为<code>pair&lt;iterator,bool&gt;</code>iterator代表迭代器，bool代表是否插入成功</li>
-<li><code>erase(x)</code>删除值为x的元素</li>
-<li><code>erase(pos)</code>删除迭代器为pos的元素，要求迭代器必须合法</li>
-<li><code>erase(first,last)</code>删除迭代器在[first,last)范围内的所有元素</li>
-<li><code>clear()</code>清空set</li>
-</ul>
-<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><ol>
-<li><code>begin()</code>指向首元素的迭代器</li>
-<li><code>end()</code>指向末端占位符的迭代器，注意没有元素</li>
-<li><code>rbegin()</code>指向末元素</li>
-<li><code>rend()</code>指向容器首的前一个元素</li>
-</ol>
-<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><ul>
-<li><code>count(x)</code>返回键为x的元素数量</li>
-<li><code>find(x)</code>返回x的迭代器，否则返回end()</li>
-<li><code>lower_bound(x)</code>返回首个大于等于给定键的元素的迭代器</li>
-<li><code>upper_bound(x)</code>返回首个大于给定键的元素的迭代器，若不存在这样的迭代器，返回end()</li>
-<li><code>empty()</code>返回容器是否为空</li>
-<li><code>size()</code>返回容器中元素个数<br>注意，<code>lower_bound</code>和<code>upper_bnoud</code>为对数时间复杂度<br>set中没有<code>nth_element</code>，而使用<code>algorithm</code>中的该函数时间复杂度为O(n)</li>
-</ul>
-<h3 id="set于贪心的应用"><a href="#set于贪心的应用" class="headerlink" title="set于贪心的应用"></a>set于贪心的应用</h3><p>用于找出并删除最小的大于某个值的元素，这种操作使用set可以轻松完成</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//现存可用元素</span></span><br><span class="line">set&lt;<span class="type">int</span>&gt; ava;</span><br><span class="line"><span class="comment">//需要大于等于的值</span></span><br><span class="line"><span class="type">int</span> x;</span><br><span class="line"><span class="comment">//查找最小的大于等于x的元素</span></span><br><span class="line">set&lt;<span class="type">int</span>&gt;::iterator it=ava.<span class="built_in">lower_bound</span>(x);</span><br><span class="line"><span class="keyword">if</span>(it==ava.<span class="built_in">end</span>())&#123;</span><br><span class="line">    <span class="comment">//不存在</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//存在，移除</span></span><br><span class="line">    ava.<span class="built_in">erase</span>(it);</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="遍历容器"><a href="#遍历容器" class="headerlink" title="遍历容器"></a>遍历容器</h2><p>可以用迭代器来遍历set或map容器的所有元素</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Only for C++11+</span></span><br><span class="line">set&lt;<span class="type">int</span>&gt; s;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> x:s) cout&lt;&lt;x&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
-<p>时间复杂度O(n)</p>
-<hr>
-<p>全文完，C++入门教程永远都不会再更新了<br>LightMC</p>
+        <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/291620246">AC评测记录</a><br>源码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span> &gt;m;</span><br><span class="line"><span class="keyword">typedef</span> map&lt;<span class="type">int</span>,<span class="type">int</span>&gt;::iterator it;</span><br><span class="line"><span class="type">int</span> ans=<span class="number">0x3f3f3f3f</span>,n;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">int</span> t;</span><br><span class="line">        cin&gt;&gt;t;</span><br><span class="line">        m[t]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!m.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="type">int</span> t=<span class="number">1</span>;</span><br><span class="line">        it i=m.<span class="built_in">begin</span>(),j=m.<span class="built_in">begin</span>();</span><br><span class="line">        (*i).second--;</span><br><span class="line">        <span class="keyword">for</span>(++j;j!=m.<span class="built_in">end</span>()&amp;&amp;(*j).first==(*i).first<span class="number">+1</span>&amp;&amp;(*j).second&gt;(*i).second;i++,j++)&#123;</span><br><span class="line">            t++;</span><br><span class="line">            (*j).second--;</span><br><span class="line">        &#125;</span><br><span class="line">        i=m.<span class="built_in">begin</span>();</span><br><span class="line">        <span class="keyword">while</span>(i!=m.<span class="built_in">end</span>()&amp;&amp;(*i).second==<span class="number">0</span>)&#123;</span><br><span class="line">            m.<span class="built_in">erase</span>((*i++).first);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(t&lt;ans)&#123;</span><br><span class="line">            ans=t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这道题我们使用了一种形式化的解法，利用map结构自动排序的便利从左到右以画线的方式进行删除，最终求出最大的最小值（不证自明，这里不给出证明）<br>具体来讲：<br><code>(*i).second--;</code>本行默认最左端的值一定会取（这无疑是显然的），故将其键值自减<br><code>for(++j;j!=m.end()&amp;&amp;(*j).first==(*i).first+1&amp;&amp;(*j).second&gt;(*i).second;i++,j++){</code>贪心算法的核心，j先自增以保证能力值不与i相同，最后先后判断：能力值指针未溢出，能力值严格连续，能力值j严格大于能力值i</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(i!=m.<span class="built_in">end</span>()&amp;&amp;(*i).second==<span class="number">0</span>)&#123;</span><br><span class="line">    m.<span class="built_in">erase</span>((*i++).first);</span><br></pre></td></tr></table></figure>
+<p>清除人数为0的能力值，防止再占用（更是为了防止极端情况下的负数人数）</p>
 
       
 
@@ -243,7 +200,7 @@
   </div>
   <p class="wx-modal-caption">扫一扫，分享到微信</p>
   <div class="wx-qrcode-frame">
-    <img class="wx-qrcode-img" src="" data-url="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http%3A%2F%2Fexample.com%2F2026%2F08%2F08%2FSTL-map%2F" alt="微信分享二维码">
+    <img class="wx-qrcode-img" src="" data-url="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http%3A%2F%2Fexample.com%2F2026%2F08%2F09%2FP4447-AHOI2018%25E5%2588%259D%25E4%25B8%25AD%25E7%25BB%2584-%25E5%2588%2586%25E7%25BB%2584%25E9%25A2%2598%25E8%25A7%25A3%2F" alt="微信分享二维码">
   </div>
 </div>
 
@@ -258,19 +215,10 @@
     
   <nav class="article-nav">
     
-      <a href="/2026/08/09/P4447-AHOI2018%E5%88%9D%E4%B8%AD%E7%BB%84-%E5%88%86%E7%BB%84%E9%A2%98%E8%A7%A3/" class="article-nav-link">
-        <strong class="article-nav-caption">last passage</strong>
-        <div class="article-nav-title">
-          
-            P4447 [AHOI2018初中组] 分组题解
-          
-        </div>
-      </a>
     
-    
-      <a href="/2026/07/25/%E6%9D%82%E8%B0%88%EF%BC%9A%E6%97%A0%E9%A2%98/" class="article-nav-link">
+      <a href="/2026/08/08/STL-map/" class="article-nav-link">
         <strong class="article-nav-caption">next passage</strong>
-        <div class="article-nav-title">杂谈：无题</div>
+        <div class="article-nav-title">STL_map</div>
       </a>
     
   </nav>
