@@ -139,6 +139,79 @@
     
     
     <article
+  id="[post]-二分法"
+  class="article article-type-[post]"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2026/08/09/%E4%BA%8C%E5%88%86%E6%B3%95/"
+    >二分法</a> 
+</h2>
+ 
+
+      
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2026/08/09/%E4%BA%8C%E5%88%86%E6%B3%95/" class="article-date">
+  <time datetime="2026-08-09T06:43:43.000Z" itemprop="datePublished">2026-08-09</time>
+</a>
+      
+      
+        
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+
+      
+        <h1 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>最优时间复杂度为O(1)，平均&#x2F;最坏时间复杂度为O(log n)<br>实现：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">binary</span><span class="params">(<span class="type">int</span> start,<span class="type">int</span> end,<span class="type">int</span> ans)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ret=<span class="number">-1</span>;</span><br><span class="line">    <span class="type">int</span> mid;</span><br><span class="line">    <span class="keyword">while</span>(start&lt;=end)&#123;</span><br><span class="line">        mid=start+((end-start)/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span>(arr[mid]&lt;ans)&#123;</span><br><span class="line">            start=mid<span class="number">+1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(arr[mid]&gt;ans)&#123;</span><br><span class="line">            end=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ret=mid;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>STL</code>中提供了查找首个大于等于给定值元素的函数<code>lower_bound</code><br><code>STL</code>中提供了查找首个大于给定值元素的函数<code>upper_bound</code></p>
+<h2 id="二分答案"><a href="#二分答案" class="headerlink" title="二分答案"></a>二分答案</h2><p>枚举答案时满足单调性，即可考虑使用二分法优化时间复杂度</p>
+
+      
+
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
+  
+</article>
+
+    
+    <article
   id="[post]-P4447-AHOI2018初中组-分组题解"
   class="article article-type-[post]"
   itemscope
@@ -300,98 +373,6 @@
 <p>时间复杂度O(n)</p>
 <hr>
 <p>全文完，C++入门教程永远都不会再更新了<br>LightMC</p>
-
-      
-
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-
-    <footer class="article-footer">
-      
-      
-    </footer>
-  </div>
-
-  
-
-  
-
-  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
-
-  
-</article>
-
-    
-    <article
-  id="\[post]-杂谈：无题"
-  class="article article-type-\[post]"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2026/07/25/%E6%9D%82%E8%B0%88%EF%BC%9A%E6%97%A0%E9%A2%98/"
-    >杂谈：无题</a> 
-</h2>
- 
-
-      
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2026/07/25/%E6%9D%82%E8%B0%88%EF%BC%9A%E6%97%A0%E9%A2%98/" class="article-date">
-  <time datetime="2026-07-24T22:01:58.000Z" itemprop="datePublished">2026-07-25</time>
-</a>
-      
-      
-        
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-
-      
-        <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>写于LMC看完《终将成为你》的番剧和漫画后。</p>
-<p>剧情就不谈了，想看的自己去看。</p>
-<p>在这里，是想说一些别的东西。</p>
-<p>人类的悲观并不相通。</p>
-<p><img src="/images/%E6%9D%82%E8%B0%881/pic1.jpg" alt="pic1"></p>
-<p>说实在话，灯子的性格其实挺像我的。总是想要成为某个人，或者说期待中的自己，于是便压抑着心里的那些情绪，让自己成为自己期待中的那样。我的有些矫揉（？这算什么用词啊）的那一面只敢压在自己心里，晚上抱着抱枕对那个从来都不存在的人撒一会儿娇，发泄一下。有什么让我很难受或者很不舒服的事，我也不太愿意讲出来，一直都是自己消化的。除非到了真正崩溃（被逼到极点了）的时候，才会哭，一次哭好久，把心里的那些愤懑与不平发泄出来，至于有没有用，我自己也不知道（叹气）。</p>
-<p><img src="/images/%E6%9D%82%E8%B0%881/pic2.jpg" alt="pic2"></p>
-<p>我曾经向往爱情，但现在不了。一是我被那东西伤害过，二是我不太符合主流价值观（指我是双qwq）。以前真的是日思夜想想着要谈，动不动就发情（？又是啥玩意）；现在难受了就听听歌，稍微看点小说（正常的和百合都看，不看耽美文学，我觉得那玩意老恶心了），缓解一下（我常常称之为往身上喷<del>瞬间伤害药水</del>瞬间治疗药水），治标不治本，但是很好用，屡试不爽（但是可能有戒断反应）。我个人不管是玩gal，看轻小说还是漫画番剧都不是特别喜欢看R18内容，可以有，但是要铺垫到恰到好处才能有（点名表扬终将），那种莫名其妙就来一次的，我个人认为是十分不妥当的。我理想中的伴侣（不论男女，究其原因是因为我的心理性别中性偏女）大概是那种参考侑的身材和长相的类型的，主要就是长得不要太浮夸（哪里都不要，太诡异了你知道吗）同时能包容我（我是真的很爱撒娇<del>哎不是我还是男的吗</del>）还能满足我的被保护欲的（我保护欲是真的不强啊），再往下细化，就是我开心就好（？）。</p>
-<p><img src="/images/%E6%9D%82%E8%B0%881/pic3.png" alt="pic2"></p>
-<p>接下来谈谈我最欣赏这部番的地方——我们究竟要成为谁，究竟是谁和究竟要不要成为那个心目中最好的自己。如果让我现在让我给一个答案，那就是既要，又不要。成为一个心目中的自己固然很重要，但是还有一个更重要的问题——这个过程中，你真的开心吗？扪心自问一下，你真的感觉好吗？事实上，我们大部分人都是很不舒服的。但是提升自己，一定就会有所牺牲，不然不就违反热力学第一定律（？）了吗？所以，我们要变得更好，但是不能以压抑自己为代价，更不能以消磨那个真正的自己，成为一个独一无二的自己。</p>
-<p><img src="/images/%E6%9D%82%E8%B0%881/pic4.jpg" alt="pic2"></p>
-<p>要问我最喜欢的一个角色是谁，那就是小糸侑（那个粉？色头发的）。她真的非常符合我对伴侣的想象（呃呃呃又开始犯赛博花痴了说是）。她很温柔（真的很温柔啊，对灯子真的是无微不至的关心，灯子高那么一个，（相对于其实也没有很高，官设163cm）趴在她怀里撒娇她都只是抱着揉揉脑袋，她真的好温柔啊呜呜呜），非常非常温柔，还特别可爱（呆毛），就是有点木头，明明就是喜欢灯子还死不承认搞心理斗争。从一个角度来分析，她喜欢的灯子不是其他人认为的那个完美无缺的灯子，而是一个会难过，会无聊，会无理取闹的灯子，也是侑拯救了灯子（动画里有暗示，没有侑可能灯子就卧轨了，动画里有暗示），最后侑对灯子表白，也是收获幸福美满的HE结局（你们想看的有的，漫画44话）。</p>
-<p><img src="/images/%E6%9D%82%E8%B0%881/pic5.jpg" alt="pic2"></p>
-<hr>
-<p>附：自然科学</p>
-<p>写这一段是因为2026菲尔兹奖得主之一邓煜。我知道媒体大多在炒作王虹，毕竟邓煜实在没什么可炒的——你总不能说看百合能拿菲奖对吧（）</p>
-<p><img src="/images/%E6%9D%82%E8%B0%881/pic6.jpg" alt="pic2"></p>
-<p>我们为何热爱航天？人类没有翅膀，却是飞得最高的鸟。从卡门线到日球层顶，从1944.6.20V2导弹首次越过卡门线，到Voyager1越过日球层顶，人类航天已经走过了82年有余。我在B站缓存了一个名叫人类航天80年——从卡门线到日球层顶的视频。说句实在话，不知道是配乐原因还是自己的原因，每次看这个视频，都会特别激动，有的时候甚至会热泪盈眶。是啊，从那个只在太空驻留了108分钟的小小金属球，到飞越一光天的金色唱片，再到跨越137亿年的宇宙回响；从引力势阱最深处，到触摸奥尔特云的星际尘埃，再到宇宙的历史与未来，人类从未停下探索星空的脚步。这里引用那个视频的一段话——“加加林的飞行虽然只持续了108分钟，但它为人类带来的深远影响，不亚于任何一场划时代的革命。（此处应有分段符）在地球上生存了两百万年后，人类终于小心翼翼的踏出了摇篮。天空从此不再是边界，星辰亦不再是遥远的贴图。沿着加加林开辟的航路，人类会把近地轨道开拓成新的领土，然后便是月球，再然后便是……（此处应有分段符）也许有一天，人类将会陈成为星际物种，而这一切，都要追溯到那个小小的，仅飞行了108分钟的金属球。”（东方一号 尤里·加加林）而在肯尼迪的登月演说中，那一句“We choose to go to the Moon.”尽管在当时这句话只是为了政治，但他确实开辟了一个全新的时代，一个属于超重型火箭的时代，一个属于星辰与未来的时代（当时看来是这样的）。后来，便有了旅行者，阿波罗，礼炮，上升，和平这些系列任务，也有了卡西尼，机遇，勇气，毅力，好奇，伽利略，新视野这些探测器，他们为世界开了一个好头，起到了先驱性的，模范性的作用。（这里我绝对没有骂传奇鸽王阿尔忒弥斯）</p>
-<p>白云腾空直入天际，自由徜徉摆脱重力<br>脚下只有海洋陆地，不曾看见天堂上帝</p>
-<p>“我环顾四周，没有什么上帝和天使！”<br>“只有山川和人民！”<br>这个文明已经完成了他们的第一次载人航天，他们即将准备好走出他们的小世界了。</p>
-<p><img src="/images/%E6%9D%82%E8%B0%881/pic7.jpg" alt="pic2"></p>
-<hr>
-<p>全文完</p>
 
       
 
